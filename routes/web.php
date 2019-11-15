@@ -24,3 +24,9 @@ Route::prefix('/kriteria')->group(function () {
     Route::get('/tambah', 'KriteriaController@create')->name('kriteria.tambah');
     Route::post('/tambah', 'KriteriaController@store')->name('kriteria.simpan');
 });
+
+Route::prefix('/nilai')->group(function() {
+    Route::get('/', 'NilaiController@index')->name('nilai');
+    Route::get('/{id}', 'NilaiController@create')->name('nilai.tambah');
+    Route::post('/{id}', 'NilaiController@store')->name('nilai.simpan');
+});

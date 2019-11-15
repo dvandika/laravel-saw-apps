@@ -131,6 +131,12 @@ to get the desired effect
                                     </a>
                                 </li>
                             </ul>
+                        <li class="nav-item">
+                            <a href="{{ route('nilai') }}" class="nav-link {{ set_active('nilai') }}">
+                                <i class="nav-icon fas fa-calculator"></i>
+                                <p>Nilai</p>
+                            </a>
+                        </li>
                         </li>
                     </ul>
                 </nav>
