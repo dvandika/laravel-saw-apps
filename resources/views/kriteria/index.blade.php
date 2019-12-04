@@ -42,7 +42,11 @@ Kriteria
                             <td>{{$data->nama}}</td>
                             <td>{{$data->jenis}}</td>
                             <td>{{$data->bobot}}</td>
-                            <td>Delete</td>
+                            <td class="text-center">
+                                <a href="{{ url('#') }}" class="btn btn-danger btn-sm">
+                                    <i class="fas fa-trash"></i>
+                                </a>
+                            </td>
                         </tr>
                         @endforeach
                         @endif

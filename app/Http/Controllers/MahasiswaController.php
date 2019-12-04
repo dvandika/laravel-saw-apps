@@ -45,12 +45,15 @@ class MahasiswaController extends Controller
             'alamat' => 'required'
         ]);
 
-        Mahasiswa::create([
+        $saveMhs = Mahasiswa::create([
             'nim' => $request->nim,
             'nama' => $request->nama,
             'alamat' => $request->alamat
         ]);
-        return redirect(route('mahasiswa'));
+        if (!$saveMhs) {
+            return back();
+        }
+        return redirect(route('nilai.tambah', ['id' => $saveMhs]));
     }
 
     /**

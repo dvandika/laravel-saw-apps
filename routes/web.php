@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('hitung', 'PerhitunganController@index')->name('perhitungan');
 
 Route::prefix('/mahasiswa')->group(function () {
     Route::get('/', 'MahasiswaController@index')->name('mahasiswa');
@@ -29,4 +30,6 @@ Route::prefix('/nilai')->group(function() {
     Route::get('/', 'NilaiController@index')->name('nilai');
     Route::get('/{id}', 'NilaiController@create')->name('nilai.tambah');
     Route::post('/{id}', 'NilaiController@store')->name('nilai.simpan');
+    Route::get('/edit/{id}', 'NilaiController@edit')->name('nilai.edit');
+    Route::post('/edit/{id}', 'NilaiController@update')->name('nilai.update');
 });

@@ -41,14 +41,14 @@ Mahasiswa
                             <td>{{$mhs->nama}}</td>
                             <td>{{$mhs->alamat}}</td>
                             <td class="text-center">
-                                <a href="{{url('#')}}" class="btn btn-md btn-primary">
-                                    <i class="fas fa-plus"></i>
+                                <a href="{{url('#')}}" class="btn btn-sm btn-primary">
+                                    <!-- <i class="fas fa-plus"></i> -->
                                 </a>
-                                <a href="{{url('#')}}" class="btn btn-md btn-warning">
-                                    <i class="fas fa-pen"></i>
+                                <a href="{{url('#')}}" class="btn btn-sm btn-warning">
+                                    <!-- <i class="fas fa-pen"></i> -->
                                 </a>
-                                <a href="{{url('#')}}" class="btn btn-md btn-danger">
-                                    <i class="fas fa-trash-alt"></i>
+                                <a href="{{url('#')}}" class="btn btn-sm btn-danger">
+                                    <!-- <i class="fas fa-trash-alt"></i> -->
                                 </a>
                             </td>
                         </tr>

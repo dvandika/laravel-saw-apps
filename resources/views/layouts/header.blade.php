@@ -82,10 +82,10 @@ to get the desired effect
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('perhitungan') }}" class="nav-link">
                                 <i class="nav-icon far fa-image"></i>
                                 <p>
-                                    Hasil Akhir
+                                    Hasil
                                 </p>
                             </a>
                         </li>

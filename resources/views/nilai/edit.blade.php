@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title')
-Tambah Nilai
+Edit Nilai
 @endsection
 
 @section('content')
@@ -10,10 +10,10 @@ Tambah Nilai
         <div class="card">
             <div class="card-header">
                 <div class="d-flex justify-content-between">
-                    <h3 class="card-title">Tambah Data</h3>
+                    <h3 class="card-title">Edit Data</h3>
                 </div>
             </div>
-            <form role="form" action="{{ route('nilai.simpan', ['id' => Request::segment(2)]) }}" method="POST">
+            <form role="form" action="{{ route('nilai.update', ['id' => Request::segment(3)]) }}" method="POST">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-sm-10 offset-sm-1">
@@ -22,18 +22,21 @@ Tambah Nilai
                             @if(!empty($mahasiswa))
                             <div class="form-group">
                                 <label for="mahasiswa">Nama Mahasiswa</label>
-                                <input type="hidden" name="mahasiswa_id" value="{{ $mahasiswa->id }}">
+                                <!-- <input type="hidden" name="mahasiswa_id" value="{{ $mahasiswa->id }}"> -->
                                 <input type="text" class="form-control" value="{{ $mahasiswa->nama }}" readonly>
                             </div>
-                            @foreach($master_kriteria as $kriteria)
                             <div class="form-group">
-                                <label for="{{ $kriteria->kode }}">{{ $kriteria->nama }}</label>
-                                <input type="text" class="form-control" name="kriteria_id[{{ $kriteria->id }}]" placeholder="Isi nilai">
-                                @if ($errors->has($kriteria->kode))
-                                <div class="text-danger">{{ $errors->first($kriteria->kode) }}</div>
+                                @foreach($mahasiswa->nilai as $key => $value)
+                                <?php $krit = $kriteria[$key]; $krit_err = "kriteria_id[$krit->id]" ?>
+                                @if($krit->id == $value->kriteria_id)
+                                <label for="{{$krit->kode}}">{{ $krit->nama }}</label>
+                                <input type="hidden" name="id_nilai[{{ $value->id }}]" value="{{ $value->id }}">
+                                <input type="text" class="form-control" name="{{$krit_err}}" value="{{ $value->nilai_alt }}">
+                                @elseif(empty($krit))
+                                <p>Fail</p>
                                 @endif
+                                @endforeach
                             </div>
-                            @endforeach
                             @else
                             <div class="form-group text-center">
                                 Data Tidak Ditemukan
@@ -45,7 +48,7 @@ Tambah Nilai
                 <div class="card-footer">
                     <div class="col-sm-10 offset-sm-1">
                         @if(!empty($mahasiswa))
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">Update</button>
                         @else
                         <a href="{{ route('nilai') }}" class="btn btn-primary">
                             <i class="fas fa-arrow-left"></i>
