@@ -5,6 +5,7 @@
  * @param [uri] $uri    Current URI
  * @param string $output CSS class name. 
  */
+
 function set_active($uri, $output = 'active')
 {
     if (is_array($uri)) {
